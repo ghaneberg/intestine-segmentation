@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "si-segmentation"
+version = "0.1.0"
+description = "Histology -> 3D layer model of the mini-pig small intestine for microscale dosimetry"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Adam Haneberg" }]
+keywords = ["histology", "segmentation", "dosimetry", "PHITS", "microscale", "tetrahedral mesh"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "meshio",
+    "tetgen",
+    "pyvista",
+    "gmsh",
+]
+
+[project.scripts]
+si-stack-qc = "si_segmentation.stack_qc:main"
+si-build-volume = "si_segmentation.build_volume:main"
+si-finalize-volume = "si_segmentation.finalize_volume:main"
+si-add-villi = "si_segmentation.add_villi:main"
+si-mesh-layers = "si_segmentation.mesh_layers:main"
+si-phits-tetmesh = "si_segmentation.phits_tetmesh_gmsh:main"
+si-mesh-qc = "si_segmentation.mesh_qc:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,36 @@
+# Byte-compiled / optimised / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment
+.venv/
+venv/
+env/
+
+# Data — never commit real histology or research images
+*.tif
+*.tiff
+*.svs
+*.ndpi
+*.qptiff
+demo-data/*/
+!demo-data/.gitkeep
+
+# QC / render outputs
+*.png
+*.obj
+*.blend
+*.node
+*.ele
+*.vtu
+*.npz
+
+# Logs
+*.log
